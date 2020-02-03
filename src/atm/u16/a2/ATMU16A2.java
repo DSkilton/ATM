@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class ATMU16A2 {
     private static double balance = 100.00;
-    private static final DecimalFormat DF = new DecimalFormat("#.##");
+    private static final DecimalFormat DF = new DecimalFormat("0.00");
     private static final Scanner SC = new Scanner(System.in);
     private static boolean bChoice = false;
     private static String sAnswer;
@@ -74,7 +74,7 @@ public class ATMU16A2 {
     }//end of main menu 
     
     public static double displayBalance(){
-        System.out.print("Your current balance: " + DF.format(balance) + "\n");
+        System.out.printf("Your current balance: " + DF.format(balance) + "\n");
         choice();
         return balance;
     }
