@@ -20,9 +20,9 @@ public class ATMU16A2 {
      */
     public static void main(String[] args) {
         displayBalance();
-        deposit(100);
+        deposit(300);
         displayBalance();
-        withdraw(200);
+        withdraw(201);
         displayBalance();
     }
     
@@ -31,16 +31,31 @@ public class ATMU16A2 {
     }
     
     public static double displayBalance(){
+        System.out.println("\nDISPLAY BALANCE");
         System.out.print("Your current balance: " + DF.format(balance) + "\n");
         return balance;
     }
     
     public static double deposit(int iDeposit){
-        return balance += iDeposit;
+        System.out.println("\nDEPOSIT FUNDS");
+        if(iDeposit <= 300) {
+            System.out.println("Deposited Amount: " + iDeposit + "\nCurrent Balance: " + (iDeposit + balance)) ;
+            return balance += iDeposit;
+        } else System.out.println("Deposited amount must be less than £300");
+        
+        return iDeposit;
     }
     
     public static double withdraw(int iWithdraw){
-        return balance -= iWithdraw;
+        System.out.println("\nMAKE WITHDRAWEL");
+        System.out.println("You can only withdraw amounts divisable by £10");
+     
+           if(iWithdraw > (balance + 10)) {
+            System.out.println("You cannot withdraw that amount");
+            return balance;
+        }       
+                
+        return balance;
     }
     
     public static void helpMenu(){
